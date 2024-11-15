@@ -1,5 +1,5 @@
 pandas
 numpy
-ta-lib
+ta
 mplfinance
 streamlit
