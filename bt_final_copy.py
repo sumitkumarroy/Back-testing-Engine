@@ -4,6 +4,8 @@ import os
 import ta
 import mplfinance as mpf
 import numpy as np
+import datetime
+
 
 def bb(country,exchange,name,initialCapital,indicator,window,type,Position,start,end,volume):
     if country== "India":
