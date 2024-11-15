@@ -734,26 +734,37 @@ def bb(country,exchange,name,initialCapital,indicator,window,type,Position,start
         return f"{path} didn't exist"
 
 
-# Streamlit App
+min_date = datetime.date(201,1,1)
+max_date = datetime.date(2023,12,31)
+
 st.title("Stock Analysis with Bollinger Bands")
 st.sidebar.header("Input Parameters")
 
 # Sidebar inputs
 country = st.sidebar.selectbox("Select the country",["India","USA","Japan"])
 if country == "India":
+    
     exchange = st.sidebar.selectbox ("Sekect an exchange",["NSE","BSE"])
-else:
+    if exchange == "NSE":
+        stock_name = st.sidebar.selectbox("Enter stock name",['Asian Paints', 'Axis Bank', 'Bajaj Finance', 'Bajaj Finserv', 'Bharti Airtel', 'Dr. Reddy’s Laboratories', 'HCL Technologies', 'HDFC Bank', 'HDFC Life', 'Hero MotoCorp', 'Hindustan Unilever', 'ICICI Bank', 'Infosys', 'ITC', 'JSW Steel', 'Kotak Mahindra Bank', 'Larsen and Toubro', 'Mahindra and Mahindra', 'Maruti Suzuki', 'NTPC', 'ONGC', 'Power Grid Corporation', 'Reliance Industries', 'State Bank of India', 'Sun Pharma', 'Tata Motors', 'Tata Steel', 'TCS', 'UltraTech Cement', 'Wipro'] )
+    elif exchange == "BSE":
+        stock_name = st.sidebar.selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
+elif country == "USA":
+    stock_name = st.sidebar.selectbox("Enter stock name",['Alphabet Inc', 'Amazon', 'Apple Inc', 'Bank of America', 'Coca Cola', 'Home Depot', 'Intel', 'Johnson and Johnson', 'JPMorgan Chase', 'Mastercard', 'Meta Platforms', 'Microsoft Corp', 'NVIDIA', 'PepsiCo', 'Pfizer', 'Procter and Gamble', 'Tesla Inc', 'UnitedHealth', 'Visa', 'Walmart'])
     exchange = None
 
+else:
+    stock_name = st.sidebar.selectbox("Enter stock name",['Daiichi Sankyo Co Ltd', 'Daikin Industries Ltd', 'Fast Retailing Co Ltd', 'Hitachi Ltd', 'Honda Motor Co Ltd', 'KDDI Corp', 'Keyence Corp', 'Mitsubishi UFJ Financial Group', 'Mitsui and Co Ltd', 'Mizuho Financial Group Inc', 'Nintendo Co Ltd', 'Nippon Telegraph and Telephone Corp', 'Panasonic Holdings Corp', 'Shin-Etsu Chemical Co Ltd', 'SoftBank Group Corp', 'Sony Group Corp', 'Sumitomo Mitsui Financial Group Inc', 'Takeda Pharmaceutical Co Ltd', 'Tokyo Electron Ltd', 'Toyota Motor Corp'])
+    exchange =  None
 
-stock_name = st.sidebar.text_input("Enter stock name", "TATASTEEL")
+
 initial_capital = st.sidebar.number_input("Enter initial capital", min_value=0, value=100000)
 indicator = st.sidebar.selectbox("Select indicator", ['Bollinger Band','RSI','VWAP','EMA','MACD'])
-window = st.sidebar.number_input("Enter window size", min_value=16, value=50)
+window = st.sidebar.number_input("Enter window size", min_value=16, value=50,max_value = 100)
 risk_type = st.sidebar.selectbox("Select risk type", ["aggressive", "moderate", "low"])
 position = st.sidebar.selectbox("Select position", ["long", "short"])
-start_date = st.sidebar.date_input("Select start date")
-end_date = st.sidebar.date_input("Select end date")
+start_date = st.sidebar.date_input("Select start date",min_value=min_date, max_value=max_date)
+end_date = st.sidebar.date_input("Select end date",min_value=min_date, max_value=max_date)
 volume = st.sidebar.selectbox("Show volume?", ["True", "False"])
 
 # Trigger analysis
