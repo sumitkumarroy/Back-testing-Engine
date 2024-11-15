@@ -9,19 +9,19 @@ def bb(country,exchange,name,initialCapital,indicator,window,type,Position,start
     if country== "India":
               
         if exchange=="NSE":
-            path = f"D:/Stocks Data/India/NSE/{name}.csv"
+            path = f"Stocks Data/India/NSE/{name}.csv"
         elif exchange=="BSE":
-            path = f"D:/Stocks Data/India/BSE/{name}.csv"
+            path = f"Stocks Data/India/BSE/{name}.csv"
         price = " RS"
         symbol="₹ "
 
     elif country == "USA":
-        path = f"D:/Stocks Data/USA/{name}.csv"
+        path = f"Stocks Data/USA/{name}.csv"
         price=" Doller"
         symbol ="$ "
 
     elif country == "Japan":
-        path = f"D:/Stocks Data/Japan/{name}.csv"
+        path = f"Stocks Data/Japan/{name}.csv"
         price=" Yen"
         symbol="¥ "
     
