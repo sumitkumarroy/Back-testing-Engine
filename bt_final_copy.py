@@ -950,9 +950,11 @@ elif action == "No":
             
             if starting not in data['Date'].dt.normalize().values:
                 st.error("starting date is invalid")
+                break
     
             elif ending not in data['Date'].dt.normalize().values:
                 st.error("ending date is invalid")
+                break
     
             if starting < ending:
                 fil_df = data[(data['Date'] >= starting) & (data['Date'] <= ending)]
