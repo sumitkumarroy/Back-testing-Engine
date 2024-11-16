@@ -986,15 +986,15 @@ elif action == "No":
         
         exchange = st. selectbox ("Sekect an exchange",["NSE","BSE"])
         if exchange == "NSE":
-            stock_name = st. selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
+            stock_name = st. selectbox("Enter stock name",['Asian Paints', 'Axis Bank', 'Bajaj Finance', 'Bajaj Finserv', 'Bharti Airtel', 'Dr. Reddy’s Laboratories', 'HCL Technologies', 'HDFC Bank', 'HDFC Life', 'Hero MotoCorp', 'Hindustan Unilever', 'ICICI Bank', 'Infosys', 'ITC', 'JSW Steel', 'Kotak Mahindra Bank', 'Larsen and Toubro', 'Mahindra and Mahindra', 'Maruti Suzuki', 'NTPC', 'ONGC', 'Power Grid Corporation', 'Reliance Industries', 'State Bank of India', 'Sun Pharma', 'Tata Motors', 'Tata Steel', 'TCS', 'UltraTech Cement', 'Wipro'] )
         elif exchange == "BSE":
             stock_name = st. selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
     elif country == "USA":
-        stock_name = st. selectbox("Enter stock name",['BMW', 'Ford', 'General Motors', 'Honda', 'Lucid Motors', 'NIO', 'Rivian', 'Stellantis', 'Tesla', 'Toyota'])
+        stock_name = st. selectbox("Enter stock name",['Alphabet Inc', 'Amazon', 'Apple Inc', 'Bank of America', 'Coca Cola', 'Home Depot', 'Intel', 'Johnson and Johnson', 'JPMorgan Chase', 'Mastercard', 'Meta Platforms', 'Microsoft Corp', 'NVIDIA', 'PepsiCo', 'Pfizer', 'Procter and Gamble', 'Tesla Inc', 'UnitedHealth', 'Visa', 'Walmart'])
         exchange = None
     
     else:
-        stock_name = st. selectbox("Enter stock name",['7201.T - Nissan', '7202.T - Isuzu Motors', '7203.T - Toyota', '7205.T - Hino Motors', '7211.T - Mitsubishi Motors', '7261.T - Mazda', '7267.T - Honda', '7269.T - Suzuki', '7270.T - Subaru', '8015.T - Toyota Tsusho'])
+        stock_name = st. selectbox("Enter stock name",['Daiichi Sankyo Co Ltd', 'Daikin Industries Ltd', 'Fast Retailing Co Ltd', 'Hitachi Ltd', 'Honda Motor Co Ltd', 'KDDI Corp', 'Keyence Corp', 'Mitsubishi UFJ Financial Group', 'Mitsui and Co Ltd', 'Mizuho Financial Group Inc', 'Nintendo Co Ltd', 'Nippon Telegraph and Telephone Corp', 'Panasonic Holdings Corp', 'Shin-Etsu Chemical Co Ltd', 'SoftBank Group Corp', 'Sony Group Corp', 'Sumitomo Mitsui Financial Group Inc', 'Takeda Pharmaceutical Co Ltd', 'Tokyo Electron Ltd', 'Toyota Motor Corp'])
         exchange =  None
     
     capital = st. number_input("Enter initial capital :", min_value=1, value=1000)
