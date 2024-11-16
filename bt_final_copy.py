@@ -947,7 +947,13 @@ elif action == "No":
             df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
             starting = pd.to_datetime(starting, format="mixed")
             ending = pd.to_datetime(ending, format="mixed")
-
+            
+            if starting not in data['Date'].dt.normalize().values:
+                st.error("starting date is invalid")
+    
+            elif ending not in data['Date'].dt.normalize().values:
+                st.error("ending date is invalid")
+    
             if starting < ending:
                 fil_df = df[(df['Date'] >= starting) & (df['Date'] <= ending)]
                 
