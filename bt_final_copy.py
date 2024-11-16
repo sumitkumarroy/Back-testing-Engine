@@ -8,10 +8,8 @@ import datetime
 st.title('Stock Analysis')
 st.sidebar.title("Do you ant to use indicator")
 
-# Define choices for the radio button
 choices = ["Yes","No"]
 
-# Radio button with the first choice pre-selected
 action = st.sidebar.radio("Select an option:", choices, index=1)
 
 if action == "Yes":
@@ -38,7 +36,7 @@ if action == "Yes":
             symbol="¥ "
         
         else:
-            print("Select a valid country")
+            st.error("Select a valid country")
             
         if os.path.exists(path):
             data =pd.read_csv(path)
@@ -58,10 +56,10 @@ if action == "Yes":
                 hodl = False
     
             if starting not in data['Date'].dt.normalize().values:
-                print("starting date is invalid")
+                st.error("starting date is invalid")
     
             elif ending not in data['Date'].dt.normalize().values:
-                print("ending date is invalid")
+                st.error("ending date is invalid")
     
             elif starting<ending:
                 if indicator == "Bollinger Band" :
@@ -877,10 +875,10 @@ if action == "Yes":
                             return f"The stock {name} with the initial capital: {symbol}{initialCapital} and the indicator: {indicator} the portfolio is :{symbol}{portfolio:.2f} and the net position is :{symbol}{netPosition:.2f}"
      
             elif starting>ending:
-                print(f"{starting} date is greater then {ending} date")
+                st.error(f"{starting} date is greater then {ending} date")
             
         else:
-            return f"{path} didn't exist"
+            st.error(f"{path} didn't exist")
     
     
     min_date = datetime.date(2013, 1, 1)
@@ -889,7 +887,6 @@ if action == "Yes":
     st.title("Stock Analysis with Bollinger Bands")
     st.sidebar.header("Input Parameters")
     
-    # Sidebar inputs
     country = st.sidebar.selectbox("Select the country",["India","USA","Japan"])
     if country == "India":
         
@@ -916,7 +913,7 @@ if action == "Yes":
     end_date = st.sidebar.date_input("Select end date",min_value=min_date, max_value=max_date)
     volume = st.sidebar.selectbox("Show volume?", ["True", "False"])
     hodl = st.sidebar.selectbox("Want to hold without trade?", ["True", "False"])
-    # Trigger analysis
+
     if st.sidebar.button("Run Analysis"):
         result = bb(country,exchange,stock_name, initial_capital, indicator, window, risk_type, position, start_date, end_date, volume,hodl)
         st.write(result)
@@ -942,33 +939,28 @@ elif action == "No":
             symbol="¥ "
         
         else:
-            print("Select a valid country")
+            st.error("Select a valid country")
 
         if os.path.exists(path):
             df = pd.read_csv(path)
 
-            # Convert the 'Date' column to datetime
             df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
             starting = pd.to_datetime(starting, format="mixed")
             ending = pd.to_datetime(ending, format="mixed")
 
-            # Validate the date range
             if starting < ending:
                 fil_df = df[(df['Date'] >= starting) & (df['Date'] <= ending)]
                 
-                # Check if filtered data is empty
                 if fil_df.empty:
-                    return f"No data available for the stock '{name}' within the selected date range ({starting} to {ending})."
+                    st.error( f"No data available for the stock '{name}' within the selected date range ({starting} to {ending}).")
 
-                # Plot the candlestick chart
-                mpf.plot(fil_df.set_index('Date'), type='candle', style='charles',
-                        title='Stock Price Candlestick Chart', ylabel='Price (₹)', volume=True)
+                fig,ax = mpf.plot(fil_df.set_index('Date'), type='candle', style='charles',
+                        title='Stock Price Candlestick Chart', ylabel='Price (₹)', volume=True,returnfig=True)
 
-                # Calculate buy and sell prices
+                st.pyplot(fig)
                 buyClosePrice = fil_df.iloc[0]['Close']
                 sellClosePrice = fil_df.iloc[-1]['Close']
 
-                # Calculate the number of shares that can be bought
                 if capital > buyClosePrice:
                     sharesCanBuy = capital // buyClosePrice
                     usedCapital = sharesCanBuy * buyClosePrice
@@ -980,9 +972,9 @@ elif action == "No":
                 else:
                     return f"Your initial capital ({symbol}{capital:.2f}) is lower than the stock's opening price ({symbol}{buyClosePrice:.2f}). Unable to buy any shares."
             else:
-                return f"Error: Starting date ({starting}) is greater than ending date ({ending})."
+                st.error(f"Starting date ({starting}) is greater than ending date ({ending}).")
         else:
-            return f"Error: File for '{name}' does not exist at the path {path}."
+            st.error(f"File for '{name}' does not exist at the path {path}.")
 
 
     min_date = datetime.date(2013, 1, 1)
@@ -1009,7 +1001,6 @@ elif action == "No":
     start_date = st.sidebar.date_input("Select start date",min_value=min_date, max_value=max_date)
     end_date = st.sidebar.date_input("Select end date",min_value=min_date, max_value=max_date)
 
-    # Handle button click to run the analysis
     if st.sidebar.button("Analyze Stock"):
         result = portfolio(country,exchange,stock_name, capital, start_date, end_date)
         if result:
