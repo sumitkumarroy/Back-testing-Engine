@@ -882,7 +882,7 @@ if action == "Yes":
     
     
     min_date = datetime.date(2013, 1, 1)
-    max_date = datetime.date(2024,08,24)
+    max_date = datetime.date(2024,8,24)
     
     st.title("Stock Analysis with Bollinger Bands")
     st. header("Input Parameters")
@@ -978,7 +978,7 @@ elif action == "No":
 
 
     min_date = datetime.date(2013, 1, 1)
-    max_date = datetime.date(2024,08,24)
+    max_date = datetime.date(2024,8,24)
     st.title('Stock Analysis without Technical Indicators')
 
     country = st. selectbox("Select the country",["India","USA","Japan"])
