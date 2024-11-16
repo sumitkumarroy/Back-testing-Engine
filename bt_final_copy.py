@@ -942,9 +942,9 @@ elif action == "No":
             st.error("Select a valid country")
 
         if os.path.exists(path):
-            df = pd.read_csv(path)
+            data = pd.read_csv(path)
 
-            df['Date'] = pd.to_datetime(df['Date']).dt.tz_localize(None)
+            data['Date'] = pd.to_datetime(data['Date']).dt.tz_localize(None)
             starting = pd.to_datetime(starting, format="mixed")
             ending = pd.to_datetime(ending, format="mixed")
             
@@ -955,7 +955,7 @@ elif action == "No":
                 st.error("ending date is invalid")
     
             if starting < ending:
-                fil_df = df[(df['Date'] >= starting) & (df['Date'] <= ending)]
+                fil_df = data[(data['Date'] >= starting) & (data['Date'] <= ending)]
                 
                 if fil_df.empty:
                     st.error( f"No data available for the stock '{name}' within the selected date range ({starting} to {ending}).")
