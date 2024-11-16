@@ -6,11 +6,11 @@ import mplfinance as mpf
 import numpy as np
 import datetime
 st.title('Stock Analysis')
-st.sidebar.title("Do you ant to use indicator")
+st.title("Do you ant to use indicator")
 
 choices = ["Yes","No"]
 
-action = st.sidebar.radio("Select an option:", choices, index=1)
+action = st. radio("Select an option:", choices, index=1)
 
 if action == "Yes":
 
@@ -885,36 +885,36 @@ if action == "Yes":
     max_date = datetime.date(2024,08,24)
     
     st.title("Stock Analysis with Bollinger Bands")
-    st.sidebar.header("Input Parameters")
+    st. header("Input Parameters")
     
-    country = st.sidebar.selectbox("Select the country",["India","USA","Japan"])
+    country = st. selectbox("Select the country",["India","USA","Japan"])
     if country == "India":
         
-        exchange = st.sidebar.selectbox ("Sekect an exchange",["NSE","BSE"])
+        exchange = st. selectbox ("Sekect an exchange",["NSE","BSE"])
         if exchange == "NSE":
-            stock_name = st.sidebar.selectbox("Enter stock name",['Asian Paints', 'Axis Bank', 'Bajaj Finance', 'Bajaj Finserv', 'Bharti Airtel', 'Dr. Reddy’s Laboratories', 'HCL Technologies', 'HDFC Bank', 'HDFC Life', 'Hero MotoCorp', 'Hindustan Unilever', 'ICICI Bank', 'Infosys', 'ITC', 'JSW Steel', 'Kotak Mahindra Bank', 'Larsen and Toubro', 'Mahindra and Mahindra', 'Maruti Suzuki', 'NTPC', 'ONGC', 'Power Grid Corporation', 'Reliance Industries', 'State Bank of India', 'Sun Pharma', 'Tata Motors', 'Tata Steel', 'TCS', 'UltraTech Cement', 'Wipro'] )
+            stock_name = st. selectbox("Enter stock name",['Asian Paints', 'Axis Bank', 'Bajaj Finance', 'Bajaj Finserv', 'Bharti Airtel', 'Dr. Reddy’s Laboratories', 'HCL Technologies', 'HDFC Bank', 'HDFC Life', 'Hero MotoCorp', 'Hindustan Unilever', 'ICICI Bank', 'Infosys', 'ITC', 'JSW Steel', 'Kotak Mahindra Bank', 'Larsen and Toubro', 'Mahindra and Mahindra', 'Maruti Suzuki', 'NTPC', 'ONGC', 'Power Grid Corporation', 'Reliance Industries', 'State Bank of India', 'Sun Pharma', 'Tata Motors', 'Tata Steel', 'TCS', 'UltraTech Cement', 'Wipro'] )
         elif exchange == "BSE":
-            stock_name = st.sidebar.selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
+            stock_name = st. selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
     elif country == "USA":
-        stock_name = st.sidebar.selectbox("Enter stock name",['Alphabet Inc', 'Amazon', 'Apple Inc', 'Bank of America', 'Coca Cola', 'Home Depot', 'Intel', 'Johnson and Johnson', 'JPMorgan Chase', 'Mastercard', 'Meta Platforms', 'Microsoft Corp', 'NVIDIA', 'PepsiCo', 'Pfizer', 'Procter and Gamble', 'Tesla Inc', 'UnitedHealth', 'Visa', 'Walmart'])
+        stock_name = st. selectbox("Enter stock name",['Alphabet Inc', 'Amazon', 'Apple Inc', 'Bank of America', 'Coca Cola', 'Home Depot', 'Intel', 'Johnson and Johnson', 'JPMorgan Chase', 'Mastercard', 'Meta Platforms', 'Microsoft Corp', 'NVIDIA', 'PepsiCo', 'Pfizer', 'Procter and Gamble', 'Tesla Inc', 'UnitedHealth', 'Visa', 'Walmart'])
         exchange = None
     
     else:
-        stock_name = st.sidebar.selectbox("Enter stock name",['Daiichi Sankyo Co Ltd', 'Daikin Industries Ltd', 'Fast Retailing Co Ltd', 'Hitachi Ltd', 'Honda Motor Co Ltd', 'KDDI Corp', 'Keyence Corp', 'Mitsubishi UFJ Financial Group', 'Mitsui and Co Ltd', 'Mizuho Financial Group Inc', 'Nintendo Co Ltd', 'Nippon Telegraph and Telephone Corp', 'Panasonic Holdings Corp', 'Shin-Etsu Chemical Co Ltd', 'SoftBank Group Corp', 'Sony Group Corp', 'Sumitomo Mitsui Financial Group Inc', 'Takeda Pharmaceutical Co Ltd', 'Tokyo Electron Ltd', 'Toyota Motor Corp'])
+        stock_name = st. selectbox("Enter stock name",['Daiichi Sankyo Co Ltd', 'Daikin Industries Ltd', 'Fast Retailing Co Ltd', 'Hitachi Ltd', 'Honda Motor Co Ltd', 'KDDI Corp', 'Keyence Corp', 'Mitsubishi UFJ Financial Group', 'Mitsui and Co Ltd', 'Mizuho Financial Group Inc', 'Nintendo Co Ltd', 'Nippon Telegraph and Telephone Corp', 'Panasonic Holdings Corp', 'Shin-Etsu Chemical Co Ltd', 'SoftBank Group Corp', 'Sony Group Corp', 'Sumitomo Mitsui Financial Group Inc', 'Takeda Pharmaceutical Co Ltd', 'Tokyo Electron Ltd', 'Toyota Motor Corp'])
         exchange =  None
     
     
-    initial_capital = st.sidebar.number_input("Enter initial capital", min_value=0, value=100000)
-    indicator = st.sidebar.selectbox("Select indicator", ['Bollinger Band','RSI','VWAP','EMA','MACD'])
-    window = st.sidebar.number_input("Enter window size", min_value=16, value=50,max_value = 100)
-    risk_type = st.sidebar.selectbox("Select risk type", ["aggressive", "moderate", "low"])
-    position = st.sidebar.selectbox("Select position", ["long", "short"])
-    start_date = st.sidebar.date_input("Select start date",min_value=min_date, max_value=max_date)
-    end_date = st.sidebar.date_input("Select end date",min_value=min_date, max_value=max_date)
-    volume = st.sidebar.selectbox("Show volume?", ["True", "False"])
-    hodl = st.sidebar.selectbox("Want to hold without trade?", ["True", "False"])
+    initial_capital = st. number_input("Enter initial capital", min_value=0, value=100000)
+    indicator = st. selectbox("Select indicator", ['Bollinger Band','RSI','VWAP','EMA','MACD'])
+    window = st. number_input("Enter window size", min_value=16, value=50,max_value = 100)
+    risk_type = st. selectbox("Select risk type", ["aggressive", "moderate", "low"])
+    position = st. selectbox("Select position", ["long", "short"])
+    start_date = st. date_input("Select start date",min_value=min_date, max_value=max_date)
+    end_date = st. date_input("Select end date",min_value=min_date, max_value=max_date)
+    volume = st. selectbox("Show volume?", ["True", "False"])
+    hodl = st. selectbox("Want to hold without trade?", ["True", "False"])
 
-    if st.sidebar.button("Run Analysis"):
+    if st. button("Run Analysis"):
         result = bb(country,exchange,stock_name, initial_capital, indicator, window, risk_type, position, start_date, end_date, volume,hodl)
         st.write(result)
 elif action == "No":
@@ -981,27 +981,27 @@ elif action == "No":
     max_date = datetime.date(2024,08,24)
     st.title('Stock Analysis without Technical Indicators')
 
-    country = st.sidebar.selectbox("Select the country",["India","USA","Japan"])
+    country = st. selectbox("Select the country",["India","USA","Japan"])
     if country == "India":
         
-        exchange = st.sidebar.selectbox ("Sekect an exchange",["NSE","BSE"])
+        exchange = st. selectbox ("Sekect an exchange",["NSE","BSE"])
         if exchange == "NSE":
-            stock_name = st.sidebar.selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
+            stock_name = st. selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
         elif exchange == "BSE":
-            stock_name = st.sidebar.selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
+            stock_name = st. selectbox("Enter stock name",['APOLLO TYRE', 'ASHOK LEYLAND', 'ATUL AUTO', 'BAJAJ AUTO', 'BOSCH', 'CEAT TYRES', 'EICHER MOTORS', 'ESCORTS MOTORS', 'EXIDE IND', 'FORCE MOTORS', 'HERO MOTO CORP', 'JK TYRE', 'Mahindra & Mahindra', 'MARUTI', 'MRF TYRES', 'SML ISUZU', 'SONA COMSTAR', 'TATA MOTORS', 'TATA POWER', 'TVS MOTORS'] )
     elif country == "USA":
-        stock_name = st.sidebar.selectbox("Enter stock name",['BMW', 'Ford', 'General Motors', 'Honda', 'Lucid Motors', 'NIO', 'Rivian', 'Stellantis', 'Tesla', 'Toyota'])
+        stock_name = st. selectbox("Enter stock name",['BMW', 'Ford', 'General Motors', 'Honda', 'Lucid Motors', 'NIO', 'Rivian', 'Stellantis', 'Tesla', 'Toyota'])
         exchange = None
     
     else:
-        stock_name = st.sidebar.selectbox("Enter stock name",['7201.T - Nissan', '7202.T - Isuzu Motors', '7203.T - Toyota', '7205.T - Hino Motors', '7211.T - Mitsubishi Motors', '7261.T - Mazda', '7267.T - Honda', '7269.T - Suzuki', '7270.T - Subaru', '8015.T - Toyota Tsusho'])
+        stock_name = st. selectbox("Enter stock name",['7201.T - Nissan', '7202.T - Isuzu Motors', '7203.T - Toyota', '7205.T - Hino Motors', '7211.T - Mitsubishi Motors', '7261.T - Mazda', '7267.T - Honda', '7269.T - Suzuki', '7270.T - Subaru', '8015.T - Toyota Tsusho'])
         exchange =  None
     
-    capital = st.sidebar.number_input("Enter initial capital :", min_value=1, value=1000)
-    start_date = st.sidebar.date_input("Select start date",min_value=min_date, max_value=max_date)
-    end_date = st.sidebar.date_input("Select end date",min_value=min_date, max_value=max_date)
+    capital = st. number_input("Enter initial capital :", min_value=1, value=1000)
+    start_date = st. date_input("Select start date",min_value=min_date, max_value=max_date)
+    end_date = st. date_input("Select end date",min_value=min_date, max_value=max_date)
 
-    if st.sidebar.button("Analyze Stock"):
+    if st. button("Analyze Stock"):
         result = portfolio(country,exchange,stock_name, capital, start_date, end_date)
         if result:
             st.write(result)
