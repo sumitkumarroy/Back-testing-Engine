@@ -6,7 +6,7 @@ import mplfinance as mpf
 import numpy as np
 import datetime
 st.title('Stock Analysis')
-st.title("Do you ant to use indicator")
+st.title("Do you want to use indicator?")
 
 choices = ["Yes","No"]
 
