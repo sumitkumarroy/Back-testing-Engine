@@ -295,23 +295,25 @@ if action == "Yes":
                                 addplot=[buy_plot, sell_plot],
                                 returnfig=True) 
                         st.pyplot(fig1)              
-
-                        if hodl:
-                            remcap = tradeHistory[0][4]
-                            p = tradeHistory[0][2]
-                            d = data.iloc[-1]['Close']
-                            h = tradeHistory[0][3]
-                            v = (d*h)-(p*h)
-                            cap= v+remcap
-                            nk=cap-initialCapital
-                            return f"If you hold the stock of {name} without making any trade on the investment: {symbol}{initialCapital} you will get:{symbol} {cap:.2f} and your net position will be: {symbol}{nk:.2f}"
-    
-    
-                        
-                        else:                    
-                            st.pyplot(fig2)
-                            return f"The stock {name} with the initial capital: {symbol}{initialCapital} and the indicator: {indicator} the portfolio is :{symbol}{portfolio:.2f} and the net position is :{symbol}{netPosition:.2f}"
-     
+                        if not tradeHistory:
+                            st.write("No trade is happend")
+                        else:
+                            if hodl:
+                                remcap = tradeHistory[0][4]
+                                p = tradeHistory[0][2]
+                                d = data.iloc[-1]['Close']
+                                h = tradeHistory[0][3]
+                                v = (d*h)-(p*h)
+                                cap= v+remcap
+                                nk=cap-initialCapital
+                                return f"If you hold the stock of {name} without making any trade on the investment: {symbol}{initialCapital} you will get:{symbol} {cap:.2f} and your net position will be: {symbol}{nk:.2f}"
+        
+        
+                            
+                            else:                    
+                                st.pyplot(fig2)
+                                return f"The stock {name} with the initial capital: {symbol}{initialCapital} and the indicator: {indicator} the portfolio is :{symbol}{portfolio:.2f} and the net position is :{symbol}{netPosition:.2f}"
+         
                     if Position == "short":
                         
                         capital = initialCapital
