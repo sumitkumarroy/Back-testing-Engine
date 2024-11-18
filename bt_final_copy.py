@@ -10,7 +10,7 @@ st.title("Do you want to use indicator?")
 
 choices = ["Yes","No"]
 
-action = st. radio("Select an option:", choices)
+action = st. radio("Select an option:", choices, index=1)
 
 if action == "Yes":
 
