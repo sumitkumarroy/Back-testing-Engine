@@ -8,9 +8,9 @@ import datetime
 st.title('Stock Analysis')
 st.title("Do you want to use indicator?")
 
-choices = ["Yes","No"]
+choices = ["Yes","No","None"]
 
-action = st. radio("Select an option:", choices, index=1)
+action = st. radio("Select an option:", choices, index=2)
 
 if action == "Yes":
 
@@ -933,6 +933,8 @@ if action == "Yes":
     if st. button("Run Analysis"):
         result = bb(country,exchange,stock_name, initial_capital, indicator, window, risk_type, position, start_date, end_date, volume,hodl)
         st.write(result)
+
+
 elif action == "No":
     def portfolio(country,exchange,name, capital, starting, ending):
         if country== "India":
@@ -999,7 +1001,8 @@ elif action == "No":
                 st.error(f"Starting date ({starting}) is greater than ending date ({ending}).")
         else:
             st.error(f"File for '{name}' does not exist at the path {path}.")
-
+elif action == "None":
+    st.write(None)  
 
     min_date = datetime.date(2013, 1, 1)
     max_date = datetime.date(2024,8,24)
