@@ -7,7 +7,7 @@ st.title("Do you want to use an indicator?")
 choices = ["Yes", "No"," None"]
 
 # Radio button without default selection
-action = st.radio("Select an option:", choices, index=0, key="indicator_choice")
+action = st.radio("Select an option:", choices, index=2, key="indicator_choice")
 
 # Handle unselected state
 if action == "Yes":
