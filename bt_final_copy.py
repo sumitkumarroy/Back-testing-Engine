@@ -900,7 +900,7 @@ if action == "Yes":
     min_date = datetime.date(2013, 1, 1)
     max_date = datetime.date(2024,8,24)
     
-    st.title("Stock Analysis with Bollinger Bands")
+    st.title("You have chosen to analyze stocks using technical indicators.")
     st. header("Input Parameters")
     
     country = st. selectbox("Select the country",["India","USA","Japan"])
@@ -921,13 +921,13 @@ if action == "Yes":
     
     
     initial_capital = st. number_input("Enter initial capital", min_value=0, value=100000)
-    indicator = st. selectbox("Select indicator", ['Bollinger Band','RSI','VWAP','EMA','MACD'])
-    window = st. number_input("Enter window size", min_value=16, value=50,max_value = 100)
+    indicator = st. selectbox("Select an indicator", ['Bollinger Band','RSI','VWAP','EMA','MACD'])
+    window = st. number_input("Enter averaging window size", min_value=10, value=50,max_value = 100)
     risk_type = st. selectbox("Select risk type", ["aggressive", "moderate", "low"])
     position = st. selectbox("Select position", ["long", "short"])
     start_date = st. date_input("Select start date",min_value=min_date, max_value=max_date)
     end_date = st. date_input("Select end date",min_value=min_date, max_value=max_date)
-    volume = st. selectbox("Show volume?", ["True", "False"])
+    volume = st. selectbox("Want to see volume?", ["True", "False"])
     hodl = st. selectbox("Want to hold without trade?", ["True", "False"])
 
     if st. button("Run Analysis"):
@@ -1005,7 +1005,7 @@ elif action == "No":
 
     min_date = datetime.date(2013, 1, 1)
     max_date = datetime.date(2024,8,24)
-    st.title('Stock Analysis without Technical Indicators')
+    st.title('You have chosen to analyze stocks without the use of technical indicators.')
 
     country = st. selectbox("Select the country",["India","USA","Japan"])
     if country == "India":
