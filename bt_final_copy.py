@@ -5,12 +5,12 @@ import ta
 import mplfinance as mpf
 import numpy as np
 import datetime
-st.title('Stock Analysis')
-st.title("Do you want to use indicator?")
+st.title('This web application is designed to facilitate stock analysis and algorithmic trading.')
+st.title("Do you want to use an indicator?")
 
-choices = ["Yes","No"]
+choices = ["Yes", "No"]
 
-action = st. radio("Select an option:", choices, index=1)
+action = st.radio("Select an option:", options=["Select an option"] + choices, index=0)
 
 if action == "Yes":
 
