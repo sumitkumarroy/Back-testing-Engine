@@ -12,9 +12,9 @@ st.title("Do you want to use an indicator?")
 choices = ["Yes", "No"]
 
 # Radio button for user action
-action = st.radio("Select an option:", choices, index=1)
+action = st.radio("Select an option:", choices)
 
-# Display additional details only if "Yes" is selected
+# Show content based on the selected option
 if action == "Yes":
     st.write("You selected 'Yes'. Here you can provide details or configure the indicators.")
     
