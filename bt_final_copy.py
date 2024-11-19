@@ -900,7 +900,7 @@ if action == "Yes":
     min_date = datetime.date(2013, 1, 1)
     max_date = datetime.date(2024,8,24)
     
-    st.title("You have chosen to analyze stocks using technical indicators.")
+    st.title("You have chosen to analyze stocks without the use of technical indicators.")
     st. header("Input Parameters")
     
     country = st. selectbox("Select the country",["India","USA","Japan"])
