@@ -1,9 +1,4 @@
-import pandas as pd
 import streamlit as st
-import os
-import ta
-import mplfinance as mpf
-import numpy as np
 import datetime
 
 st.title('Stock Analysis')
@@ -11,8 +6,8 @@ st.title("Do you want to use an indicator?")
 
 choices = ["Yes", "No"]
 
-# Radio button for user action
-action = st.radio("Select an option:", choices,index=-1,key="indicator_choice")
+# Radio button for user action with no initial selection
+action = st.radio("Select an option:", choices, index=-1, key="indicator_choice")
 
 # Show content based on the selected option
 if action == "Yes":
