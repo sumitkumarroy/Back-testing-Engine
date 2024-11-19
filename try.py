@@ -5,7 +5,7 @@ import ta
 import mplfinance as mpf
 import numpy as np
 import datetime
-st.title('This web page is designed to perform stock analysis with algorithmic trading')
+st.title('This web application is designed to facilitate stock analysis and algorithmic trading.')
 st.title("Do you want to use an indicator?")
 
 choices = ["Yes", "No"]
