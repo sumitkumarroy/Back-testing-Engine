@@ -1007,7 +1007,7 @@ elif action == "No":
     min_date = datetime.date(2013, 1, 1)
     max_date = datetime.date(2024,8,24)
     st.title('You have chosen to analyze stocks without the use of technical indicators.')
-    st.text("Here, the profit or loss will be calculated based on the the starting date price to the ending date price")
+    st.text("Here, the profit or loss will be calculated based on the the starting date price of the stock to the ending date's price")
     st.header("Input Parameters")
     
     country = st. selectbox("Select the country",["India","USA","Japan"])
