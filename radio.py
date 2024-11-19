@@ -4,7 +4,7 @@ import datetime
 st.title('Stock Analysis')
 st.title("Do you want to use an indicator?")
 
-choices = ["Yes", "No"," None"]
+choices = ["Yes", "No"," none"]
 
 # Radio button without default selection
 action = st.radio("Select an option:", choices, index=0, key="indicator_choice")
@@ -24,5 +24,5 @@ if action == "Yes":
 elif action == "No":
     st.write("You selected 'No'. No further details to configure.")
 
-elif:action == "None":
+elif:action == "none":
     st.write(None)  # Ensure no text is displayed for unselected state
