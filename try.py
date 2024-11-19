@@ -1060,7 +1060,4 @@ elif action == "No":
             st.write(result)
 
 elif action == "None":
-    return None 
-
-
-
+    st.write(None)
