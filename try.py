@@ -1064,24 +1064,3 @@ elif action == "None":
 
 
 
-
-# name = input("Enter stock name: ")
-# capital = int(input("Enter initial capital: "))
-# indicator = input("Enter indicator (Bollinger Band/RSI/VWAP/EMA/MACD): ")
-# window = int(input("Enter window size: "))
-# risk_type = input("Enter risk type (aggressive/moderate/low): ")
-# position = input("Enter your position(long/short): ")
-# start_date = input("Enter start date (YYYY-MM-DD): ")
-# end_date = input("Enter end date (YYYY-MM-DD): ")
-# volume = input("Want to seee the volume (True/False): ")
-
-
-# print(bb(name, capital,indicator,window,risk_type,position,start_date,end_date,volume))
-
-# print(bb("Reliance Industries",20000,"MACD",17,"aggressive","short","2013-01-07","2021-03-18"," false"))
-
-    
-    
-
-
-
